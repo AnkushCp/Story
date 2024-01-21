@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebXR Support Checker</title>
+</head>
+<body>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Check for WebXR support
+      if ('xr' in navigator) {
+        console.log('WebXR is supported on this device!');
+        
+        // Now, you can check for AR capabilities
+        navigator.xr.isSessionSupported('immersive-ar').then((supported) => {
+          if (supported) {
+            console.log('AR is supported on this device!');
+          } else {
+            console.log('AR is not supported on this device.');
+          }
+        });
+      } else {
+        console.log('WebXR is not supported on this device.');
+      }
+    });
+  </script>
+</body>
+</html>
